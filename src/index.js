@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import ThemeAppProvider from './Components/AppThemeProvider/ThemeProvider';
+import AuthProvider from './utils/AuthContext';
+import { OpenProvider } from './utils/OpenContext';
+import { ProductProvider } from './utils/ProductContext';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+  <OpenProvider>
+  <AuthProvider>
+
+  <ThemeAppProvider>
+  
+    <ProductProvider><App/></ProductProvider>
+</ThemeAppProvider> 
+   
+  </AuthProvider>
+  </OpenProvider>
+  
+
+    
   </React.StrictMode>
 );
 
